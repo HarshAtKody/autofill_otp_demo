@@ -38,6 +38,8 @@ dependencies:
   colorful_safe_area: ^0.3.0
   sms_autofill: ^2.2.0
 
+  alt_sms_autofill:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

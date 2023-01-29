@@ -1,3 +1,4 @@
+import 'package:autofill_otp_demo/ui/auth/otp_screen_using_alt_sms_auto_fill.dart';
 import 'package:autofill_otp_demo/ui/auth/otp_screen_using_sms_auto_fill.dart';
 import 'package:autofill_otp_demo/utils/common_utils.dart';
 import 'package:autofill_otp_demo/utils/const.dart';
@@ -45,10 +46,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return ColorfulSafeArea(
-      color: const Color(0xFF363636),
+      color: const Color(0xFF7D84E0),
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: isLoaded ? Colors.white : const Color(0xFF363636),
+          backgroundColor: isLoaded ? Colors.white : const Color(0xFF7D84E0),
           body: isLoaded
               ? const Center(child: CircularProgressIndicator())
               : CustomScrollView(
@@ -241,7 +242,7 @@ class _LoginScreenState extends State<LoginScreen> {
               },
               child: const BorderBox(
                 margin: false,
-                color: Color(0xFF363636),
+                color: Color(0xFF7D84E0),
                 height: 50,
                 child: Text(
                   "Proceed",

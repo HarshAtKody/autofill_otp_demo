@@ -1,3 +1,4 @@
+import 'package:alt_sms_autofill/alt_sms_autofill.dart';
 import 'package:autofill_otp_demo/ui/home/home_screen.dart';
 import 'package:autofill_otp_demo/utils/common_utils.dart';
 import 'package:autofill_otp_demo/utils/const.dart';
@@ -7,62 +8,54 @@ import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
-class OtpScreenUsingSmsAutoFill extends StatefulWidget {
+class OtpScreenUsingAltSmsAutoFill extends StatefulWidget {
   final String phone;
 
-  const OtpScreenUsingSmsAutoFill({Key? key, required this.phone})
+  const OtpScreenUsingAltSmsAutoFill({Key? key, required this.phone})
       : super(key: key);
 
   @override
-  State<OtpScreenUsingSmsAutoFill> createState() =>
-      _OtpScreenUsingSmsAutoFillState();
+  State<OtpScreenUsingAltSmsAutoFill> createState() =>
+      _OtpScreenUsingAltSmsAutoFillState();
 }
 
-class _OtpScreenUsingSmsAutoFillState extends State<OtpScreenUsingSmsAutoFill>
-    with CodeAutoFill {
+class _OtpScreenUsingAltSmsAutoFillState
+    extends State<OtpScreenUsingAltSmsAutoFill> {
   String otpCode = "";
   bool isLoaded = false;
   final FirebaseAuth auth = FirebaseAuth.instance;
-  String? appSignature;
+
+  Future<void> initSmsListener() async {
+    String? comingSms;
+    try {
+      comingSms = await AltSmsAutofill().listenForSms;
+    } on PlatformException {
+      comingSms = 'Failed to get Sms.';
+    } catch (e, s) {
+      showLog("Error $e , StackTrace $s");
+    }
+    if (!mounted) return;
+
+    setState(() {
+      otpCode = comingSms ?? "";
+    });
+  }
 
   @override
-  void codeUpdated() {
-    setState(() {
-      otpCode = code!;
-      showLog("Code From Update Method $code");
-    });
+  void dispose() {
+    AltSmsAutofill().unregisterListener();
+    super.dispose();
   }
 
   @override
   void initState() {
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      _listenOtp();
-      SmsAutoFill().getAppSignature.then((signature) {
-        setState(() {
-          appSignature = signature;
-          showLog("app Signature $signature");
-        });
-      });
+      initSmsListener();
     });
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    SmsAutoFill().unregisterListener();
-    showLog("Unregistered Listener");
-    super.dispose();
-  }
-
-  void _listenOtp() async {
-    try {
-      await SmsAutoFill().listenForCode();
-    } catch (e, s) {
-      showLog("Error $e, Stacktrace $s");
-    }
-    showLog("OTP Listen is called");
   }
 
   @override
