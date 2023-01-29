@@ -62,10 +62,10 @@ class _OtpScreenUsingSmsAutoFillState extends State<OtpScreenUsingSmsAutoFill> w
   @override
   Widget build(BuildContext context) {
     return ColorfulSafeArea(
-      color: const Color(0xFF8C4A52),
+      color: const Color(0xFF363636),
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: isLoaded ? Colors.white : const Color(0xFF8C4A52),
+          backgroundColor: isLoaded ? Colors.white : const Color(0xFF363636),
           body: isLoaded
               ? const Center(child: CircularProgressIndicator())
               : CustomScrollView(
@@ -98,7 +98,7 @@ class _OtpScreenUsingSmsAutoFillState extends State<OtpScreenUsingSmsAutoFill> w
                                     decoration: const BoxLooseDecoration(
                                       radius: Radius.circular(12),
                                       strokeColorBuilder: FixedColorBuilder(
-                                        Color(0xFF8C4A52),
+                                        Color(0xFF363636),
                                       ),
                                     ),
                                     codeLength: 6,
@@ -154,7 +154,7 @@ class _OtpScreenUsingSmsAutoFillState extends State<OtpScreenUsingSmsAutoFill> w
               },
               child: const BorderBox(
                 margin: false,
-                color: Color(0xFF8C4A52),
+                color: Color(0xFF363636),
                 height: 50,
                 child: Text(
                   "Continue",

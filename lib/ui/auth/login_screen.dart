@@ -45,10 +45,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return ColorfulSafeArea(
-      color: const Color(0xFF8C4A52),
+      color: const Color(0xFF363636),
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: isLoaded ? Colors.white : const Color(0xFF8C4A52),
+          backgroundColor: isLoaded ? Colors.white : const Color(0xFF363636),
           body: isLoaded
               ? const Center(child: CircularProgressIndicator())
               : CustomScrollView(
@@ -203,7 +203,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                 ),
-          bottomNavigationBar: Container(
+          bottomNavigationBar: (isLoaded)?const Offstage(): Container(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
             color: Colors.white,
             child: GestureDetector(
@@ -241,7 +241,7 @@ class _LoginScreenState extends State<LoginScreen> {
               },
               child: const BorderBox(
                 margin: false,
-                color: Color(0xFF8C4A52),
+                color: Color(0xFF363636),
                 height: 50,
                 child: Text(
                   "Proceed",

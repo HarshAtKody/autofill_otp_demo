@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text("Welcome"),
         centerTitle: true,
-        backgroundColor: const Color(0xFF8C4A52),
+        backgroundColor: const Color(0xFF363636),
       ),
       body: Center(
         child: Column(
@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: const Color(0xFF8C4A52),
+                  color: const Color(0xFF363636),
                 ),
                 child: const Center(
                   child: Text(
