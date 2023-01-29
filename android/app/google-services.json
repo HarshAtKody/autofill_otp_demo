@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "113988824710",
+    "project_id": "otpautofill-dfcc9",
+    "storage_bucket": "otpautofill-dfcc9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113988824710:android:f5749c757bc88830016b07",
+        "android_client_info": {
+          "package_name": "com.example.autofill_otp_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113988824710-m1a0rdbgv51dkir167ejg3l3oiatpib9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy-Dv2ud9j3Qwnn4moSVAEUEQoA7JYU4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113988824710-m1a0rdbgv51dkir167ejg3l3oiatpib9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
