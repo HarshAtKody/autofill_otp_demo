@@ -39,6 +39,9 @@ dependencies:
   sms_autofill: ^2.2.0
 
   alt_sms_autofill:
+  otp_autofill:
+
+
 
 dev_dependencies:
   flutter_test:
